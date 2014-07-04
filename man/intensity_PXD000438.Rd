@@ -1,0 +1,30 @@
+\name{intensity_PXD000438}
+\alias{intensity_PXD000438}
+\docType{data}
+\title{ Dataset PXD000438 from ProteomeXchange. }
+\description{ This dataset has been collected during a study designed to compare human primary tumor-derived xenograph proteomes of the two major histological non-small cel lung cancer subtypes: adenocarcinoma (ADC) and squamous cell carcinoma (SCC). The dataset within this package contains proteins intensity for 6 ADC and 6 SCC samples, processed using MaxQuant. More information can be found on ProteomeExchange public repository(http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD000438) or in the original paper (see reference). }
+\usage{data(intensity_PXD000438)}
+\format{
+  A data frame with 3709 observations on the following 13 variables.
+  \describe{
+    \item{\code{Protein.IDs}}{Peptides/Proteins names}
+    \item{\code{Intensity.092.1}}{a numeric vector}
+    \item{\code{Intensity.092.2}}{a numeric vector}
+    \item{\code{Intensity.092.3}}{a numeric vector}
+    \item{\code{Intensity.441.1}}{a numeric vector}
+    \item{\code{Intensity.441.2}}{a numeric vector}
+    \item{\code{Intensity.441.3}}{a numeric vector}
+    \item{\code{Intensity.561.1}}{a numeric vector}
+    \item{\code{Intensity.561.2}}{a numeric vector}
+    \item{\code{Intensity.561.3}}{a numeric vector}
+    \item{\code{Intensity.691.1}}{a numeric vector}
+    \item{\code{Intensity.691.2}}{a numeric vector}
+    \item{\code{Intensity.691.3}}{a numeric vector}
+  }
+}
+\source{ Original MaxQuant data: http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD000438 }
+\references{ Zhang W, Wei Y, Ignatchenko V, Li L, Sakashita S, Pham NA, Taylor P, Tsao MS, Kislinger T, Moran MF, Proteomic profiles of human lung adeno and squamous cell carcinoma using super-SILAC and label-free quantification approaches. Proteomics, 14(6):795-803(2014). }
+\examples{
+data(intensity_PXD000438)
+}
+\keyword{datasets}

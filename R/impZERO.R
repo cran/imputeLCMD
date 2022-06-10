@@ -1,11 +1,16 @@
-# .....................................................................................
-# this function performs missing values imputation by 0
 
-# arguments ___________________________________________________________________________
-#           : dataSet.mvs       - MSnSet containing abundances with MVs (either peptides or proteins)
-
-# output ______________________________________________________________________________
-#           : dataSet.imputed      - dataset containing complete abundances
+#' @title Imputation by 0.
+#' 
+#' @description 
+#' This function performs missing values imputation by 0.
+#' 
+#' @param dataSet.mvs expression matrix containing abundances with MVs 
+#'                         (either peptides or proteins)
+#'
+#' @return dataset containing complete abundances
+#'  
+#' @export
+#' 
 
 impute.ZERO = function(dataSet.mvs){
   

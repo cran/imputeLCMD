@@ -1,19 +1,22 @@
-# -----------------------------------------------------------------------------------
-# - this function performs missing values imputation by random draws from a gaussian
+#' @title Imputation by random draws
+#' 
+#' @description 
+#' This function performs missing values imputation by random draws from a gaussian
 #   distribution centered in the minimum value observed and with standard deviation
 #   equal to the median value of the population of line-wise standard deviations
-# -----------------------------------------------------------------------------------
-
-# input _____________________________________________________________________________
-#           : dataSet.mvs    - expression matrix containing abundances with 
-#                              MVs (either peptides or proteins)
-#           : q              - the q-th quantile used to estimate the minimum 
-#                              value observed for each sample; 
-#           : tune.sigma    - coefficient that controls the sd of the MNAR distribution
-
-# output ____________________________________________________________________________
-#           : dataSet.imputed      - dataset containing complete abundances
-
+#' 
+#' @param dataSet.mvs expression matrix containing abundances with 
+#' MVs (either peptides or proteins)
+#' @param q the q-th quantile used to estimate the minimum 
+#' value observed for each sample
+#' @param tune.sigma coefficient that controls the sd of the MNAR distribution
+#' 
+#' @return dataset containing complete abundances
+#'  
+#' @export
+#' 
+#' @import stats
+#' 
 impute.MinProb = function(dataSet.mvs,q = 0.01,tune.sigma = 1){
     
   nSamples = dim(dataSet.mvs)[2]

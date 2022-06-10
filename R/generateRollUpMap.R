@@ -1,15 +1,15 @@
-# -------------------------------------------------------------------------------------
-# this function generates a map for peptide to protein roll-ul
-# -------------------------------------------------------------------------------------
-
-# arguments ___________________________________________________________________________
-#           : nProt           - number of proteins to map to the peptide expression data
-#           : pep.Expr.Data   - matrix of peptide expression data
-
-# output ______________________________________________________________________________
-#           : pep.prot.Map    - the peptide to protein map (for each row in 
-#                               pep.prot.Map the corresponding value corresponds 
-#                               to the index of the protein that peptide is mapped to)
+#' @title Generate roll up map
+#' 
+#' @description Tthis function generates a map for peptide to protein roll-up
+#' 
+#' @param nProt number of proteins to map to the peptide expression data
+#' @param pep.Expr.Data matrix of peptide expression data
+#' 
+#' @return the peptide to protein map (for each row in 
+#' pep.prot.Map the corresponding value corresponds 
+#'  to the index of the protein that peptide is mapped to)
+#'  
+#' @export
 
   generate.RollUpMap = function(nProt, pep.Expr.Data){
     

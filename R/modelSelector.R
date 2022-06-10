@@ -1,19 +1,25 @@
-# .....................................................................................
-# - this function determines row in the data matrix affected by a MNAR missingness 
-#   mechanism
-# - it is based on the assumption that the distributions of the mean values  
-#   of proteins follows a normal distribution
-# - the method makes use of a decision function defined as a tradeoff between the empirical 
-#   CDF of the proteins' means and the theoretical CDF assuming that no MVs are present
 
-# arguments ___________________________________________________________________________
-#   : dataSet.mvs       - expression matrix containing abundances with MVs 
-#                         (either peptides or proteins)
-
-# output ______________________________________________________________________________
-#   : results           - flags vector; "1" denotes rows containing random missing
-#                         values; "0" denotes rows containing left-censored missing values
-
+#' @title Identifies row in the data matrix affected by a MNAR missingness 
+#'  mechanism
+#' 
+#' @description 
+#' - this function determines row in the data matrix affected by a MNAR missingness 
+#'   mechanism
+#' - it is based on the assumption that the distributions of the mean values  
+#'   of proteins follows a normal distribution
+#' - the method makes use of a decision function defined as a tradeoff between the empirical 
+#'   CDF of the proteins' means and the theoretical CDF assuming that no MVs are present
+#' 
+#' @param dataSet.mvs expression matrix containing abundances with MVs 
+#' (either peptides or proteins)
+#'
+#' @return flags vector; "1" denotes rows containing random missing
+#'  values; "0" denotes rows containing left-censored missing values
+#'  
+#' @import stats
+#' 
+#' @export
+#' 
 model.Selector = function(dataSet.mvs){
   
   # ___________________________________________________________________________________  

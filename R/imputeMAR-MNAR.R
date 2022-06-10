@@ -1,19 +1,22 @@
-# .....................................................................................
-# - this function performs missing values imputation under MCAR and MNAR hypothesis
-#   
 
-# arguments ___________________________________________________________________________
-#   : dataSet.mvs       - expression matrix containing abundances with MVs 
-#                         (either peptides or proteins)
-#   : model.selector    - binary vector; "1" indicates MCAR proteins
-#   : method.MAR        - the method to be used for MAR missing values
-#                       - possible values: MLE (default), SVD, KNN
-#   : method.MNAR       - the method to be used for MAR missing values
+
+#' @title Imputation under MCAR and MNAR hypothesis
+#' 
+#' @description 
+#' this function performs missing values imputation under MCAR and MNAR hypothesis
+#' 
+#' @param dataSet.mvs expression matrix containing abundances with MVs 
+#'                         (either peptides or proteins)
+#' @param model.selector    - binary vector; "1" indicates MCAR proteins
+#' @param method.MAR        - the method to be used for MAR missing values
+#'                       - possible values: MLE (default), SVD, KNN
+#' @param method.MNAR       - the method to be used for MAR missing values
 #                       - possible values: QRILC (default), MinDet, MinProb
-
-# output ______________________________________________________________________________
-#   : dataSet.imputed   - dataset containing complete abundances
-
+#'
+#' @return dataset containing complete abundances
+#'  
+#' @export
+#'
 impute.MAR.MNAR = function(dataSet.mvs, model.selector, 
                            method.MAR = "KNN", method.MNAR = "QRILC"){
   

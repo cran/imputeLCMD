@@ -1,22 +1,25 @@
-# -------------------------------------------------------------------------------------
-# this function performs missing values imputation based quantile regression
-# -------------------------------------------------------------------------------------
 
-# arguments ___________________________________________________________________________
-#           : dataSet.mvs - matrix of protein abundances with MVs 
-#                                 (either peptides or proteins)
-#           : tune.sigma - coefficient that controls the sd of the MNAR distribution
+#' @title imputation based on quantile regression
+#' 
+#' @description 
+#' this function performs missing values imputation based quantile regression
+#' 
+#' @param dataSet.mvs expression matrix with MVs (either peptides or proteins)
+#' @param tune.sigma coefficient that controls the sd of the MNAR distribution
 #                        - tune.sigma = 1 if the complete data distribution is supposed 
 #                          to be gaussian
 #                        - 0 < tune.sigma < 1 if the complete data distribution is  
 #                          supposed to be left-censored
-
-# output ______________________________________________________________________________
-#           : results     - a list  containing: a matrix with the 
-#                           complete abundances, a list with the 
-#                           estimated parameters of the complete
-#                           data distribution
-
+#'
+#' @return a list  containing: a matrix with the 
+#' complete abundances, a list with the 
+#' estimated parameters of the complete
+#' data distribution
+#'  
+#' @import stats
+#' @importFrom tmvtnorm rtmvnorm
+#' @export
+#'
 impute.QRILC = function(dataSet.mvs,tune.sigma = 1){
   
   # get the dimension of the data .....................................................

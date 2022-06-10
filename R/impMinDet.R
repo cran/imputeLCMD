@@ -1,14 +1,17 @@
-# ---------------------------------------------------------------------------------
-# this function performs missing values imputation by the minimum value observed
-
-# input ___________________________________________________________________________
-#         : dataSet.mvs       - expression matrix containing abundances with 
-#                               MVs (either peptides or proteins);
-#         : q                 - the q quantile used to estimate the minimum 
-#                               value observed for each sample; 
-
-# output __________________________________________________________________________
-#         : dataSet.imputed      - dataset containing complete abundances
+#' @title Imputation with min value
+#' 
+#' @description this function performs missing values imputation by the minimum value observed
+#' 
+#' @param dataSet.mvs expression matrix with MVs (either peptides or proteins)
+#' @param q the q quantile used to estimate the minimum 
+#                               value observed for each sample
+#' 
+#' @return dataset containing complete abundances
+#'  
+#' @export
+#' 
+#' @import stats
+#' 
 
 impute.MinDet = function(dataSet.mvs,q = 0.01){
   

@@ -1,13 +1,16 @@
-# -------------------------------------------------------------------------------------
-# this function performs missing values imputation using the EM algorithm
-# -------------------------------------------------------------------------------------
 
-# arguments ___________________________________________________________________________
-#           : dataSet.mvs       - expression matrix with MVs (either peptides or proteins)
-
-# output ______________________________________________________________________________
-#           : dataSet.imputed   - expression matrix with MVs imputed
-
+#' @title imputation using the EM algorithm
+#' 
+#' @description 
+#' This function performs missing values imputation using the EM algorithm
+#' 
+#' @param dataSet.mvs expression matrix with MVs (either peptides or proteins)
+#'
+#' @return expression matrix with MVs imputed
+#'  
+#' @export
+#' @importFrom norm prelim.norm em.norm rngseed imp.norm
+#' 
 impute.wrapper.MLE = function(dataSet.mvs){
   
   s <- prelim.norm (dataSet.mvs)

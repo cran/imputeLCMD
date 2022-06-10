@@ -1,28 +1,34 @@
-# -------------------------------------------------------------------------------------
-# this function generates missing data in a complete data matrix
-# -------------------------------------------------------------------------------------
 
-# arguments ___________________________________________________________________________
-#           : original        - complete data matrix containing all measurements
-#
-#           : mean.THR,sd.THR   - parameters of the threshold distribution which 
-#                               controls the MVs rate (mean.THR should be initially set 
-#                               such that the result of the initial thresholding, 
-#                               in terms of no. of NAs, equals the desired total 
-#                               missing data rate) 
-#                             - example: if one wants to generate 30% missing data
-#                               mean.THR can be set as follows: 
-#                               mean.THR = quantile(pepExprsData, probs = 0.3)
-#                             - sd.THR is usually set to a small value (e.g. 0.1)
-#
-#           : MNAR.rate       - percentage of MVs which are missing not at random
-#
-# output ______________________________________________________________________________
-#           : list            - contains the original complete data matrix, 
-#                               the data matrix with missing data and the 
-#                               percentage of missing data
+#' @title Generates missing values in data.
+#' 
+#' @description 
+#' this function generates missing data in a complete data matrix
+#' 
+#' @param original complete data matrix containing all measurements
+#' @param mean.THR,sd.THR   - parameters of the threshold distribution which 
+#'                              controls the MVs rate (mean.THR should be initially set 
+#'                               such that the result of the initial thresholding, 
+#'                               in terms of no. of NAs, equals the desired total 
+#'                               missing data rate) 
+#'                             - example: if one wants to generate 30% missing data
+#'                               mean.THR can be set as follows: 
+#'                               mean.THR = quantile(pepExprsData, probs = 0.3)
+#'                             - sd.THR is usually set to a small value (e.g. 0.1)
+#' @param MNAR.rate percentage of MVs which are missing not at random
+#'
+#' @return A list that contains the original complete data matrix, 
+#' the data matrix with missing data and the 
+#' percentage of missing data
+#'  
+#' @export
+#' 
+#' @import stats
+#' 
 
-insertMVs = function(original,mean.THR,sd.THR,MNAR.rate){
+insertMVs = function(original,
+                     mean.THR,
+                     sd.THR,
+                     MNAR.rate){
   
   originalNaNs = original
   

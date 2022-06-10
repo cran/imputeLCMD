@@ -1,26 +1,39 @@
-# -------------------------------------------------------------------------------------
-# this function generates artificial peptide abundance data with DA proteins
-# samples are drawn from a gaussian distribution
-# -------------------------------------------------------------------------------------
+#' @title Generate expression data
+#' 
+#' @description this function generates artificial peptide abundance data with DA proteins
+#' samples are drawn from a gaussian distribution
+#' 
+#' @param nSamples1 number of samples in condition 1
+#' @param nSamples2 number of samples in condition 2
+#' @param meanSamples xxx 
+#' @param sdSamples xxx
+#' @param nFeatures number of total features
+#' @param nFeaturesUp number of features up regulated
+#' @param nFeaturesDown number of features down regulated
+#' @param meanDynRange mean value of the dynamic range
+#' @param sdDynRange sd of the dynamic range
+#' @param meanDiffAbund xxx
+#' @param sdDiffAbund xxx
+#' 
+#' @return A list containing the data, the conditions label and the regulation
+#' label (up/down/no)
+#' 
+#' @export
+#' 
+#' @import stats
 
-# arguments ___________________________________________________________________________
-#           : nSamples1       - number of samples in condition 1
-#           : nSamples2       - number of samples in condition 2
-#           : nFeatures       - number of total features
-#           : nFeatures1      - number of features up regulated
-#           : nFeatures2      - number of features down regulated
-#           : meanDynRange    - mean value of the dynamic range
-#           : sdDynRange      - sd of the dynamic range
 
-# output ______________________________________________________________________________
-#           : list      - containing the data, the conditions label and the regulation
-#                         label (up/down/no)
-
-generate.ExpressionData = function(nSamples1,nSamples2,
-                            meanSamples, sdSamples,
-                            nFeatures, nFeaturesUp, nFeaturesDown,
-                            meanDynRange, sdDynRange,
-                            meanDiffAbund, sdDiffAbund){
+generate.ExpressionData = function(nSamples1,
+                                   nSamples2,
+                                   meanSamples, 
+                                   sdSamples,
+                                   nFeatures, 
+                                   nFeaturesUp, 
+                                   nFeaturesDown,
+                                   meanDynRange, 
+                                   sdDynRange,
+                                   meanDiffAbund,
+                                   sdDiffAbund){
   
   # generate a matrix of nSamples1 + nSamples2 samples from a Gaussian distribution
   nSamples = nSamples1 + nSamples2
